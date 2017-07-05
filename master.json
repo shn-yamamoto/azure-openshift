@@ -178,7 +178,7 @@
         "typeHandlerVersion": "1.3",
         "settings": {
           "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'master.sh')]" ],
-          "commandToExecute": "[ concat('sh master.sh ', parameters('adminUsername'), ' ', parameters('adminPassword') ) ]"
+          "commandToExecute": "[ concat('sh master.sh ', parameters('adminUsername'), ' ', parameters('adminPassword') , ' \'', parameters('rhnUsername'), '\' \'', parameters('rhnPassword'), '\' ', parameters('rhnPoolID')) ]"
         }
       }
     }

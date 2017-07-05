@@ -48,7 +48,7 @@ nodes
 ansible_ssh_user=${USERNAME}
 ansible_become=yes
 debug_level=2
-deployment_type=enterprise
+deployment_type=openshift-enterprise
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 openshift_master_cluster_method=native
