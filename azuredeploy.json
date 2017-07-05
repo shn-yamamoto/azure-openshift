@@ -687,6 +687,15 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
+          "rhnUsername": {
+            "value": "[parameters('rhnUsername')]"
+          },
+          "rhnPassword": {
+            "value": "[parameters('rhnPassword')]"
+          },
+          "rhnPoolID": {
+            "value": "[parameters('rhnPoolID')]"
+          },
           "vmName": {
             "value": "[concat('node', padLeft(add(copyindex(), 1), 2, '0'))]"
           },
@@ -806,6 +815,15 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
+          "rhnUsername": {
+            "value": "[parameters('rhnUsername')]"
+          },
+          "rhnPassword": {
+            "value": "[parameters('rhnPassword')]"
+          },
+          "rhnPoolID": {
+            "value": "[parameters('rhnPoolID')]"
+          },
           "vmName": {
             "value": "[concat('master', add(copyindex(), 1))]"
           },
@@ -862,6 +880,15 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
+          "rhnUsername": {
+            "value": "[parameters('rhnUsername')]"
+          },
+          "rhnPassword": {
+            "value": "[parameters('rhnPassword')]"
+          },
+          "rhnPoolID": {
+            "value": "[parameters('rhnPoolID')]"
+          },
           "vmName": {
             "value": "[concat('infranode', add(copyindex(), 1))]"
           },
