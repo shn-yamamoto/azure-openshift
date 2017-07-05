@@ -713,15 +713,6 @@
           },
           "imageReference": {
             "value": "[variables(parameters('image'))]"
-          },
-          "rhnUsername": {
-            "value": "[parameters('rhnUsername')]"
-          },
-          "rhnPassword": {
-            "value": "[parameters('rhnPassword')]"
-          },
-          "rhnPoolID": {
-            "value": "[parameters('rhnPoolID')]"
           }
         }
       }
@@ -785,12 +776,6 @@
           },
           "rhnUsername": {
             "value": "[parameters('rhnUsername')]"
-          },
-          "rhnPassword": {
-            "value": "[parameters('rhnPassword')]"
-          },
-          "rhnPoolID": {
-            "value": "[parameters('rhnPoolID')]"
           }
         }
       }
@@ -847,15 +832,6 @@
           },
           "backEndAddressPool": {
             "value": "[concat(variables('masterlbid'), '/backendAddressPools/BackendPool')]"
-          },
-          "rhnUsername": {
-            "value": "[parameters('rhnUsername')]"
-          },
-          "rhnPassword": {
-            "value": "[parameters('rhnPassword')]"
-          },
-          "rhnPoolID": {
-            "value": "[parameters('rhnPoolID')]"
           }
         }
       }
@@ -909,15 +885,6 @@
           },
           "backEndAddressPool": {
             "value": "[concat(variables('infralbid'), '/backendAddressPools/BackendPool')]"
-          },
-          "rhnUsername": {
-            "value": "[parameters('rhnUsername')]"
-          },
-          "rhnPassword": {
-            "value": "[parameters('rhnPassword')]"
-          },
-          "rhnPoolID": {
-            "value": "[parameters('rhnPoolID')]"
           }
         }
       }
