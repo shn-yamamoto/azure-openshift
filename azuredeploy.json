@@ -2,6 +2,27 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "rhnUsername": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "RHN Username."
+      }
+    },
+    "rhnUserpassword": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "RHN Password."
+      }
+    },
+    "rhnPoolid": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "RHN poolID."
+      }
+    },
     "adminUsername": {
       "type": "string",
       "minLength": 1,
@@ -436,7 +457,7 @@
     }
   },
   "variables": {
-    "baseTemplateUrl": "https://raw.githubusercontent.com/derdanu/azure-openshift/master/",
+    "baseTemplateUrl": "https://raw.githubusercontent.com/akubicharm/azure-openshift/master/",
     "baseVMachineTemplateUriInfranode": "[concat(variables('baseTemplateUrl'), 'infranode.json')]",
     "baseVMachineTemplateUriNode": "[concat(variables('baseTemplateUrl'), 'node.json')]",
     "baseVMachineTemplateUriMaster": "[concat(variables('baseTemplateUrl'), 'master.json')]",
@@ -485,7 +506,7 @@
     "rhel": {
       "publisher": "RedHat",
       "offer": "RHEL",
-      "sku": "7.2",
+      "sku": "7.3",
       "version": "latest"
     }
   },
