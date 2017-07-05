@@ -9,14 +9,14 @@
         "description": "RHN Username."
       }
     },
-    "rhnUserpassword": {
+    "rhnPassword": {
       "type": "string",
       "minLength": 1,
       "metadata": {
         "description": "RHN Password."
       }
     },
-    "rhnPoolid": {
+    "rhnPoolID": {
       "type": "string",
       "minLength": 1,
       "metadata": {
