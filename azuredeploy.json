@@ -776,6 +776,12 @@
           },
           "rhnUsername": {
             "value": "[parameters('rhnUsername')]"
+          },
+          "rhnPassword": {
+            "value": "[parameters('rhnPassword')]"
+          },
+          "rhnPoolID": {
+            "value": "[parameters('rhnPoolID')]"
           }
         }
       }
