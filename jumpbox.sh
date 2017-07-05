@@ -6,22 +6,27 @@ NODECOUNT=$3
 ROUTEREXTIP=$4 #ip address of infranodes (must to be public ip address if access from internet needed)
 MASTERCOUNT=$5
 INFRACOUNT=$6
+RHNUSERNAME=$7
+RHNPASSWORD=$8
+RHNPOOLID=$9
+
+# subscribe
+subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
+subscription-manager attach --pool=$RHNPOOLID
+subscription-manager repos --disable="*"
+subscription-manager repos \
+    --enable="rhel-7-server-rpms" \
+    --enable="rhel-7-server-extras-rpms" \
+    --enable="rhel-7-server-ose-3.5-rpms" \
+    --enable="rhel-7-fast-datapath-rpms"
 
 #yum -y update
-yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion httpd-tools
-yum -y install https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
-sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
-yum -y --enablerepo=epel install ansible pyOpenSSL
+yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct httpd-tools
+yum -y install atomic-openshift-utils
+yum -y install atomic-openshift-excluder atomic-openshift-docker-excluer
+atomic-openshift-excluder unexclude
 
-# Workaround for Ansible 2.2.1.0 Bug
-yum -y erase ansible
-yum install -y "@Development Tools" openssl-devel python-devel
-yum -y --enablerepo=epel install python2-pip
-pip install -Iv ansible==2.2.0.0
-mkdir /etc/ansible
-###
 
-git clone https://github.com/openshift/openshift-ansible /opt/openshift-ansible
 yum -y install docker
 sed -i -e "s#^OPTIONS='--selinux-enabled'#OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0/16'#" /etc/sysconfig/docker
 
@@ -43,7 +48,7 @@ nodes
 ansible_ssh_user=${USERNAME}
 ansible_become=yes
 debug_level=2
-deployment_type=origin
+deployment_type=enterprise
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 openshift_master_cluster_method=native
