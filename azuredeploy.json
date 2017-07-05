@@ -70,7 +70,7 @@
     },
     "masterVMSize": {
       "type": "string",
-      "defaultValue": "Basic_A0",
+      "defaultValue": "Standard_DS4_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
@@ -170,7 +170,7 @@
     },
     "infranodeVMSize": {
       "type": "string",
-      "defaultValue": "Basic_A0",
+      "defaultValue": "Standard_DS3_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
@@ -271,7 +271,7 @@
     },
     "nodeVMSize": {
       "type": "string",
-      "defaultValue": "Basic_A0",
+      "defaultValue": "Standard_DS3_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
@@ -364,7 +364,7 @@
     },
     "jumpVMSize": {
       "type": "string",
-      "defaultValue": "Basic_A0",
+      "defaultValue": "Standard_DS1_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
