@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "jumpbox.sh called."
+exit
 
 USERNAME=$1
 HOSTNAME=$2 #fqdn of masters (web console address)

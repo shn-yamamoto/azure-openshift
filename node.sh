@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "node.sh called"
+exit
+
 RHNUSERNAME=$1
 RHNPASSWORD=$2
 RHNPOOLID=$3

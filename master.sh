@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "master.sh called."
+exit
+
 USERNAME=$1
 PASSWORD=$2
 RHNUSERNAME=$3
