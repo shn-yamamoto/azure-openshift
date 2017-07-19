@@ -41,7 +41,7 @@ atomic-openshift-excluder unexclude
 
 
 yum -y install docker
-sed -i -e "s#^OPTIONS='--selinux-enabled'#OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0/16'#" /etc/sysconfig/docker
+sed -i '/OPTIONS=.*/c\OPTIONS="--selinux-enabled --insecure-registry 172.30.0.0/16"' /etc/sysconfig/docker
 
 
 cat <<EOF > /etc/sysconfig/docker-storage-setup
