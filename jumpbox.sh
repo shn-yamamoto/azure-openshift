@@ -19,10 +19,9 @@ echo "$ROUTEREXTIP"  >> /var/tmp/mylog
 echo "$MASTERCOUNT"  >> /var/tmp/mylog
 echo "$INFRACOUNT"  >> /var/tmp/mylog
 echo "$RHNUSERNAME"  >> /var/tmp/mylog
-echo "$RHNUSERPASSWORD"  >> /var/tmp/mylog
-echo "$RHNUSERPOOLID"  >> /var/tmp/mylog
+echo "$RHNPASSWORD"  >> /var/tmp/mylog
+echo "$RHNPOOLID"  >> /var/tmp/mylog
 
-exit
 
 # subscribe
 subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
@@ -43,6 +42,8 @@ atomic-openshift-excluder unexclude
 
 yum -y install docker
 sed -i -e "s#^OPTIONS='--selinux-enabled'#OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0/16'#" /etc/sysconfig/docker
+
+exit
 
 cat <<EOF > /etc/sysconfig/docker-storage-setup
 DEVS=/dev/sdc
