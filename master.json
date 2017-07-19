@@ -189,6 +189,8 @@
         "settings": {
           "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'master.sh')]" ],
           "commandToExecute": "[ concat('sh master.sh ', parameters('adminUsername'), ' ', parameters('adminPassword') ) ]"
+          "commandToExecute": "[ concat('sh master.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', prameters('rhnUsername'), ' ', variables('escapeChar'), parameters('rhnPassword'), variables('escapeChar'), ' ', parameters('rhnPoolID') ) ]"
+
         }
       }
     }
