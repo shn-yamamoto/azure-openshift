@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "jumpbox.sh called."
-exit
 
 USERNAME=$1
 HOSTNAME=$2 #fqdn of masters (web console address)
@@ -11,6 +10,19 @@ INFRACOUNT=$6
 RHNUSERNAME=$7
 RHNPASSWORD=$8
 RHNPOOLID=$9
+
+touch /var/tmp/mylog
+echo "$USERNAME"  >> /var/tmp/mylog
+echo "$HOSTNAME"  >> /var/tmp/mylog
+echo "$NODECOUNT"  >> /var/tmp/mylog
+echo "$ROUTEREXTIP"  >> /var/tmp/mylog
+echo "$MASTERCOUNT"  >> /var/tmp/mylog
+echo "$INFRACOUNT"  >> /var/tmp/mylog
+echo "$RHNUSERNAME"  >> /var/tmp/mylog
+echo "$RHNUSERPASSWORD"  >> /var/tmp/mylog
+echo "$RHNUSERPOOLID"  >> /var/tmp/mylog
+
+exit
 
 # subscribe
 subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
