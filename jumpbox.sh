@@ -71,6 +71,8 @@ systemctl enable docker-cleanup
 systemctl enable docker
 EOF
 
+(cd /home/${USERNAME}; pre-install.sh)
+
 
 # ############################################################################
 # Create Playbook for install packages in nodes.
@@ -166,6 +168,7 @@ for volume in pv{1..10} ; do
   echo Creating export for volume $volume;
   echo "/var/export/pvs/${volume} *(rw,sync,root_squash)" >> /etc/exports;
 done;
+echo "/var/export/pvs *(rw,sync,root_squash)" >> /etc/exports;
 
 systemctl enable rpcbind nfs-server
 systemctl start rpcbind nfs-server nfs-lock nfs-idmap
