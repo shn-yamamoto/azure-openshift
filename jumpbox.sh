@@ -71,7 +71,8 @@ systemctl enable docker-cleanup
 systemctl enable docker
 EOF
 
-(cd /home/${USERNAME}; pre-install.sh)
+chmod 755 /home/${USERNAME}/pre-install.sh
+/home/${USERNAME}/pre-install.sh
 
 
 # ############################################################################
@@ -210,6 +211,7 @@ for f in pv*.yaml; do
   oc create -f \$f;
 done
 EOF
+chmod 755 /home/${USERNAME}/post-install.sh
 
 
 cat <<EOF > /home/${USERNAME}/post-install.yaml
