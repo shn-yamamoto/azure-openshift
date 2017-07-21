@@ -200,7 +200,6 @@
         "type": "CustomScriptForLinux",
         "typeHandlerVersion": "1.5",
         "settings": {
-          "timestamp": "[(Get-Date).Tics]",
           "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'jumpbox.sh')]" ],
           "commandToExecute": "[ concat('sh jumpbox.sh ', parameters('adminUsername'), ' ', parameters('fqdn'), ' ', padLeft(parameters('numberOfNodes'), 2, '0'), ' ', parameters('routerExtIP'), ' ', parameters('numberOfMasterNodes'), ' ', parameters('numberOfInfraNodes'), ' ', parameters('rhnUsername'), ' ', variables('escapeChar'), parameters('rhnPassword'), variables('escapeChar'), ' ', parameters('rhnPoolID') ) ]"
         }
