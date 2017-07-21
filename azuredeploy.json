@@ -32,6 +32,7 @@
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "password",
       "metadata": {
         "description": "User password for the Openshift Webconsole"
       }
