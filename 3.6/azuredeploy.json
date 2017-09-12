@@ -458,7 +458,7 @@
     }
   },
   "variables": {
-    "baseTemplateUrl": "https://raw.githubusercontent.com/akubicharm/azure-openshift/master/",
+    "baseTemplateUrl": "https://raw.githubusercontent.com/akubicharm/azure-openshift/master/3.6/",
     "baseVMachineTemplateUriInfranode": "[concat(variables('baseTemplateUrl'), 'infranode.json')]",
     "baseVMachineTemplateUriNode": "[concat(variables('baseTemplateUrl'), 'node.json')]",
     "baseVMachineTemplateUriMaster": "[concat(variables('baseTemplateUrl'), 'master.json')]",
