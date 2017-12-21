@@ -171,7 +171,7 @@ EOF
 
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
-ansible-playbook prep-install.yaml
+ansible-playbook pre-install.yaml
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/config.yml
 for i in $(seq -s " " 1 ${MASTERCOUNT}); do ssh -q -t -o StrictHostKeyChecking=no master\$i sudo htpasswd -cb /etc/origin/master/htpasswd joe redhat; done;
 EOF
