@@ -1,10 +1,15 @@
 #!/bin/bash
 echo "node.sh called"
-exit
 
 RHNUSERNAME=$1
 RHNPASSWORD=$2
 RHNPOOLID=$3
+
+echo $RHNUSERNAME
+echo $RHNPASSWORD
+ecoh $RHNPOOLID
+
+exit
 
 # subscribe
 subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
