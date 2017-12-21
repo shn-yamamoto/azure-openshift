@@ -52,6 +52,9 @@
       "metadata": {
         "description": "resourceId of the infra loadbalancer backendpool this machine will be joined to"
       }
+    },
+    "customStorageAccount": {
+      "type": "string"
     }
   },
   "variables": {
@@ -136,12 +139,15 @@
           }
         },
         "storageProfile": {
-          "imageReference": "[parameters('imageReference')]",
           "osDisk": {
             "name": "osdisk",
-            "vhd": {
-              "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, 'openshiftvmachines/', parameters('vmName'), '.vhd')]"
+            "image": {
+              "uri": "[parameters('imageReference')]"
             },
+            "vhd": {
+              "uri": "[concat('https://',parameters('customStorageAccount'),'.blob.core.windows.net/openshiftvmachines/', resourceGroup().name, '/',parameters('vmName'),'.vhd')]"
+            },
+            "osType": "Linux",
             "caching": "ReadWrite",
             "createOption": "FromImage"
           },
