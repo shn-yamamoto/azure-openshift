@@ -455,10 +455,22 @@
       "metadata": {
         "description": "Please choose the required storage type for the selected jumpbox VM size (premium or standard)"
       }
+    },
+    "customImageStorageAccount": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account for CustomOSImage"
+      }
+    },
+    "customImageName": {
+      "type": "string",
+      "metadata": {
+        "description": "CustomOSImage path. ex) images/custom_image.vhd"
+      }
     }
   },
   "variables": {
-    "baseTemplateUrl": "https://raw.githubusercontent.com/akubicharm/azure-openshift/master/3.6/",
+    "baseTemplateUrl": "https://raw.githubusercontent.com/shn-yamamoto/azure-openshift/master/3.6/",
     "baseVMachineTemplateUriInfranode": "[concat(variables('baseTemplateUrl'), 'infranode.json')]",
     "baseVMachineTemplateUriNode": "[concat(variables('baseTemplateUrl'), 'node.json')]",
     "baseVMachineTemplateUriMaster": "[concat(variables('baseTemplateUrl'), 'master.json')]",
@@ -509,7 +521,8 @@
       "offer": "RHEL",
       "sku": "7.3",
       "version": "latest"
-    }
+    },
+    "imageReference": "[concat('https://',parameters('customImageStorageAccount'),'.blob.core.windows.net/', parameters('customImageName'))]"
   },
   "resources": [
     {
@@ -722,7 +735,10 @@
             "value": "[variables('baseTemplateUrl')]"
           },
           "imageReference": {
-            "value": "[variables(parameters('image'))]"
+            "value": "[variables('imageReference')]"
+          },
+          "customStorageAccount": {
+            "value": "[parameters('customStorageAccount')]"
           }
         }
       }
@@ -767,7 +783,7 @@
             "value": "[variables('baseTemplateUrl')]"
           },
           "imageReference": {
-            "value": "[variables(parameters('image'))]"
+            "value": "[variables('imageReference')]"
           },
           "fqdn": {
             "value": "[reference(variables('masterpipname')).dnsSettings.fqdn]"
@@ -792,6 +808,9 @@
           },
           "rhnPoolID": {
             "value": "[parameters('rhnPoolID')]"
+          },
+          "customStorageAccount": {
+            "value": "[parameters('customStorageAccount')]"
           }
         }
       }
@@ -850,13 +869,16 @@
             "value": "[variables('baseTemplateUrl')]"
           },
           "imageReference": {
-            "value": "[variables(parameters('image'))]"
+            "value": "[variables('imageReference')]"
           },
           "ASName": {
             "value": "[variables('masterASName')]"
           },
           "backEndAddressPool": {
             "value": "[concat(variables('masterlbid'), '/backendAddressPools/BackendPool')]"
+          },
+          "customStorageAccount": {
+            "value": "[parameters('customStorageAccount')]"
           }
         }
       }
@@ -912,13 +934,16 @@
             "value": "[variables('baseTemplateUrl')]"
           },
           "imageReference": {
-            "value": "[variables(parameters('image'))]"
+            "value": "[variables('imageReference')]"
           },
           "ASName": {
             "value": "[variables('infraASName')]"
           },
           "backEndAddressPool": {
             "value": "[concat(variables('infralbid'), '/backendAddressPools/BackendPool')]"
+          },
+          "customStorageAccount": {
+            "value": "[parameters('customStorageAccount')]"
           }
         }
       }

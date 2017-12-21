@@ -51,9 +51,9 @@ subscription-manager repos \
     --enable="rhel-7-fast-datapath-rpms"
 
 # install packages
-yum -y update
+yum -y update --exclude=WALinuxAgent
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
-yum -y update
+yum -y update --exclude=WALinuxAgent
 yum -y install atomic-openshift-utils
 
 yum -y install docker
