@@ -522,7 +522,7 @@
       "sku": "7.3",
       "version": "latest"
     },
-    "imageReference": "[concat('https://',parameters('customImageStorageAccount'),'.blob.core.windows.net/', parameters('customImageName'))]"
+    "imageReference": "[concat('https://',parameters('customStorageAccount'),'.blob.core.windows.net/', parameters('customImageName'))]"
   },
   "resources": [
     {
