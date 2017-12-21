@@ -7,7 +7,7 @@ RHNPOOLID=$3
 
 echo $RHNUSERNAME
 echo $RHNPASSWORD
-ecoh $RHNPOOLID
+echo $RHNPOOLID
 
 exit
 
