@@ -456,7 +456,7 @@
         "description": "Please choose the required storage type for the selected jumpbox VM size (premium or standard)"
       }
     },
-    "customImageStorageAccount": {
+    "customStorageAccount": {
       "type": "string",
       "metadata": {
         "description": "Storage Account for CustomOSImage"
