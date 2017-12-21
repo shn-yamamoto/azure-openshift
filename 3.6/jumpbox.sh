@@ -59,6 +59,8 @@ yum -y install atomic-openshift-utils
 yum -y install docker
 sed -i '/OPTIONS=.*/c\OPTIONS="--selinux-enabled --insecure-registry 172.30.0.0/16"' /etc/sysconfig/docker
 
+yum -y install zip unzip
+
 # docker setup
 cat <<EOS > /etc/sysconfig/docker-storage-setup
 DEVS=/dev/sdc
