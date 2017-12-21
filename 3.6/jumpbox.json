@@ -149,6 +149,7 @@
             "image": {
               "uri": "[parameters('imageReference')]"
             },
+            "osType": "Linux",
             "vhd": {
               "uri": "[concat('https://',parameters('customStorageAccount'),'.blob.core.windows.net/openshiftvmachines/', resourceGroup().name, '/',parameters('vmName'),'.vhd')]"
             },
