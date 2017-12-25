@@ -24,6 +24,7 @@ subscription-manager repos \
 #yum -y update
 yum -y update --exclude=WALinuxAgent
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct httpd-tools
+yum -y install zip unzip
 yum -y install atomic-openshift-utils
 yum -y install atomic-openshift-excluder atomic-openshift-docker-excluder
 atomic-openshift-excluder unexclude
