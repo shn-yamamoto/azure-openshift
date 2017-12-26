@@ -89,6 +89,18 @@ cat <<EOF > /home/${USERNAME}/pre-install.yaml
 ---
 - hosts: nodes
   tasks:
+    - name: change ifcfg-eth0 NM_CONTROLLED=yes
+      lineinfile:
+        dest: /etc/sysconfig/network-scripts/ifcfg-eth0
+        state: present
+        regexp: '^NM_CONTROLLED'
+        line: NM_CONTROLLED=yes
+
+    - name: Restart NetworkManager
+      service:
+        name: NetworkManager
+        state: restarted
+
     - name: copy and unzip files
       unarchive:
         src: pre-install.zip
