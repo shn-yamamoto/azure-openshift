@@ -41,8 +41,8 @@ _RHNPASSWORD=\`cat \$WORKDIR/rhn-password\`
 _RHNPOOLID=\`cat \$WORKDIR/rhn-poolid\`
 
 # subscribe
-subscription-manager register --username=\$_RHNUSERNAME --password=\$_RHNPASSWORD
-subscription-manager attach --pool=\$_RHNPOOLID
+#subscription-manager register --username=\$_RHNUSERNAME --password=\$_RHNPASSWORD
+#subscription-manager attach --pool=\$_RHNPOOLID
 subscription-manager repos --disable="*"
 subscription-manager repos \
     --enable="rhel-7-server-rpms" \
@@ -71,6 +71,11 @@ docker-storage-setup
 systemctl enable docker-cleanup
 systemctl enable docker
 EOF
+
+subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
+subscription-manager attach --pool=$RHNPOOLID
+yum install -y zip unzip
+
 
 chmod 755 /home/${USERNAME}/pre-install.sh
 /home/${USERNAME}/pre-install.sh

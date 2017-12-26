@@ -5,15 +5,16 @@ RHNUSERNAME=$1
 RHNPASSWORD=$2
 RHNPOOLID=$3
 
-echo $RHNUSERNAME
-echo $RHNPASSWORD
-echo $RHNPOOLID
-
-exit
-
 # subscribe
 subscription-manager register --username=$RHNUSERNAME --password=$RHNPASSWORD
 subscription-manager attach --pool=$RHNPOOLID
+
+# install zip & unzip package
+yum install -y zip unzip
+
+echo "node.sh finished."
+exit 0
+
 subscription-manager repos --disable="*"
 subscription-manager repos \
     --enable="rhel-7-server-rpms" \
